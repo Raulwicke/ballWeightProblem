@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\nicho\Desktop\ballWeightProblem"
+VIRTUAL_ENV="C:\Users\nicho\Documents\GitHub\ballWeightProblem"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

@@ -22,15 +22,21 @@ def findHeavyBall(ballArray,n=0):
                 return ballArray[n]
         if ballArray[n] < ballArray[n+1]:
                 return ballArray[n+1]
+    # Handle if the ball at position n is not an integer
     except(TypeError):
         return "Ball in the Bag has no weight."
+    
     except(IndexError):
         if not ballArray:
+    # Handle if the array is empty
             return "Bag is Empty."
+    # Handle if the program reaches the end of the array without there being a heaviest ball
         return "End of Bag."
     except(KeyError):
+    # Handle if the array is not an array
         return "Bag of Balls is not an Array."
     except(RecursionError):
+    # Handle if the Recursion Limit is reached during the program and alert the user.
         return "Bag is too large. Update Recursion Limit to try again."
     
 
@@ -68,12 +74,12 @@ class TestBallExceptionHandling(ut.TestCase):
         self.assertEqual(findHeavyBall({"foo":"bar","fizz":"bang"}),"Bag of Balls is not an Array.")
     
     def test_recursion_limit_(self):
+        test_range = sys.getrecursionlimit() + 1
         self.large_array = []
-        for i in range (10001):
+        for i in range (test_range):
             self.large_array.append(1)
-        self.large_array[5000] = 2
+        self.large_array[test_range - 1] = 2
         self.assertEqual(findHeavyBall(self.large_array),"Bag is too large. Update Recursion Limit to try again.")   
-    
     
     def test_bag_is_not_empty_exception(self):
         self.assertEqual(findHeavyBall([]),"Bag is Empty.")
@@ -93,7 +99,7 @@ class TestLargeNumberOfBalls(ut.TestCase):
         self.large_array[700] = 2
         self.assertEqual(findHeavyBall(self.large_array),2,"Incorrect Ball")
     
-    @ut.skipIf(sys.getrecursionlimit() < 1001, "Test is known to fail if the Recursion Limit is not modified")    
+    @ut.skipIf(sys.getrecursionlimit() < 10001, "Test is known to fail if the Recursion Limit is not modified.")    
     def test_ten_thousand_array(self):
         self.large_array = []
         for i in range (10001):

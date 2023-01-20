@@ -7,5 +7,5 @@ The Ball Weight Problem is an algorithm that recursively searches through an arr
 1. Activate the virtual environment
  	1. On Windows, run: `ballWeightProblem\Scripts\activate.bat`
 	1. On Unix or MacOS, run: `source ballWeightProblem/bin/activate`
-1. Upon accessing the virtual environment, use the command `python ballWeightProblem.py -v` to run the code and output the verbose unittests.
+1. Upon accessing the virtual environment, use the command `python ballWeightProblem/ballWeightProblem.py -v` to run the code and output the verbose unittests.
  
